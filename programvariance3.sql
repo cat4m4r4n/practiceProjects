@@ -1,6 +1,6 @@
 --program variance again again, but with dates and getting rid of some tables i didn't use before
 --get rid of all the daypart filtering and stuff in the base exposure tables
---just count households and exposure duration per household per exposure type per program id per date
+--just count households and sum exposure duration per household per exposure type per program id per date
 
 --get the test db max dates for abc
 drop table if exists sandbox.cl_dates;
