@@ -26,5 +26,5 @@ tau_to_z <- function(n, tau, alpha){
 #kendall's tau is (concordant num of pairs - num of discordant pairs) / (num concordant pairs + num of discordant pairs)
 #z = (3*tau*(sqrt(n(n-1))))/(sqrt(2(2n+5)))
 
-cor.test(var1, var2, method = "kendall")
+#cor.test(var1, var2, method = "kendall")
 #accepts dataset instead of vars
