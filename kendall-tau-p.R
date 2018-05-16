@@ -19,13 +19,17 @@ tau_to_z <- function(n, tau, alpha){
   starstext <-"p < .0001 ‘****’; p < .001 ‘***’, p < .01 ‘**’, p < .05 ‘*’"
 
   pval<-(paste0(pval,stars))
-  pval <-matrix(pval, nrow=nrow(z), ncol=(ncol(z)))
-  rownames(pval) <- rownames(z)
-  colnames(pval) <- colnames(z)
-  
-  #save to list to return multiple objects. lefthand is the label
-  results <-list(zscore=z, pcrit=pcrit, pval_test = pval, sig=starstext)
-  #results <-list(zscore=z, pcrit=pcrit, pval=paste0(pval,stars), sig=starstext)
+  if (is.null(nrow(tau))) {
+                          results <-list(zscore=z, pcrit=pcrit, pval_test = pval, sig=starstext)
+                        } else {
+                                pval <-matrix(pval, nrow=nrow(z), ncol=(ncol(z)))
+                                rownames(pval) <- rownames(z)
+                                colnames(pval) <- colnames(z)
+    
+                                #save to list to return multiple objects. lefthand is the label
+                                results <-list(zscore=z, pcrit=pcrit, pval_test = pval, sig=starstext)
+                                #results <-list(zscore=z, pcrit=pcrit, pval=paste0(pval,stars), sig=starstext)
+                              }
 
   return(results)
 }
@@ -37,5 +41,5 @@ tau_to_z <- function(n, tau, alpha){
 #z = (3*tau*(sqrt(n(n-1))))/(sqrt(2(2n+5)))
 
 #cor.test(var1, var2, method = "kendall")
-#also can accept dataset instead of vars
+#accepts dataset instead of vars
 
