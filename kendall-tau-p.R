@@ -37,5 +37,5 @@ tau_to_z <- function(n, tau, alpha){
 #z = (3*tau*(sqrt(n(n-1))))/(sqrt(2(2n+5)))
 
 #cor.test(var1, var2, method = "kendall")
-#accepts dataset instead of vars
+#also can accept dataset instead of vars
 
